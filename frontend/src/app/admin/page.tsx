@@ -97,7 +97,8 @@ export default function AdminPage() {
   const loadDevis = async () => {
     try {
       // First try to fetch from backend API
-      const res = await fetch('http://localhost:5000/api/v1/devis', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const res = await fetch(`${apiUrl}/api/v1/devis`, {
         headers: {
           'x-admin-token': 'change-this-secret-admin-token-123'
         }
